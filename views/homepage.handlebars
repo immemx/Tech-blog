@@ -1,0 +1,13 @@
+    <div class="container-fluid">
+        {{#each posts as |post|}}
+        <div class="row mx-5 pt-2 border border-2 border-primary">
+            <div class="col-12 d-flex justify-content-start">
+                <p class="mx-2">{{user.user_name}}</p>
+                <p class="mx-2">{{created_at}}</p>
+            </div>
+                <p class="mx-2">{{title}}</p>
+        </div>
+        {{/each}}
+    </div>
+
+    <script src="../public/javascript/login.js"></script>
