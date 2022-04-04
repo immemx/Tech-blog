@@ -10,11 +10,14 @@
 <body>
     <div class="container-fluid">
         <div class="row d-flex justify-content-between my-3 border-bottom border-2 border-primary">
-            <h1 class="col-4 text-center">Tech blog</h1>
+            <h1 class="col-4 text-center"><a href="/">Tech blog</a></h1>
             <div class="col-8 d-flex justify-content-end py-3 px-5">
-                <button type="button" class="btn btn-primary mx-2">Home</button>
-                <button type="button" class="btn btn-primary mx-2">Login</button>
-                <button type="button" class="btn btn-primary mx-2">Log out</button>
+                <a href="/"><button type="button" class="btn btn-primary mx-2">Home</button></a>
+                {{#if req.session.loggedIn}}
+                <a><button type="button" class="btn btn-primary mx-2">Logout</button></a>
+                {{else}}
+                <a href="/login"><button type="button" class="btn btn-primary mx-2">Login</button></a>
+                {{/if}}
             </div>
         </div>
     </div>
