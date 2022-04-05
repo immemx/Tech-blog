@@ -1,18 +1,20 @@
-const usernameEl = document.querySelector('#username')
-const passwordEl = document.querySelector('#password')
+const usernameEl = document.querySelector('#username');
+const passwordEl = document.querySelector('#password');
+const emailEl = document.querySelector('#email');
 
-async function loginFormHandler(e) {
-    e.preventDefault();
+const signupFormHandler = async (event) => {
+    event.preventDefault();
 
     const user_name = usernameEl.value.trim();
     const password = passwordEl.value.trim();
+    const email = emailEl.value.trim();
 
-
-    if(user_name && password) {
-        const response = await fetch('/api/users/login', {
+    if(user_name && password && email) {
+        const response = await fetch('/api/users/', {
             method: 'POST',
             body: JSON.stringify({
                 user_name,
+                email,
                 password
             }),
             headers: {'Content-Type':'application/json'}
@@ -28,8 +30,4 @@ async function loginFormHandler(e) {
 }
 
 
-
-
-
-
-document.addEventListener('submit', loginFormHandler)
+document.addEventListener('submit', signupFormHandler)
